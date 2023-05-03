@@ -4,6 +4,7 @@ import com.creito.apicreito.dto.UsuarioDTO;
 import com.creito.apicreito.entity.Usuario;
 import com.creito.apicreito.response.Response;
 import com.creito.apicreito.service.UsuarioService;
+import com.creito.apicreito.util.Bcrypt;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -37,7 +38,7 @@ public class UsuarioController {
          u.setId(dto.getId());
          u.setName(dto.getName());
          u.setEmail(dto.getEmail());
-         u.setPassword(dto.getPassword());
+         u.setPassword(Bcrypt.getHash(dto.getPassword()));
          return u;
     }
 
@@ -46,7 +47,7 @@ public class UsuarioController {
         dto.setId(u.getId());
         dto.setName(u.getName());
         dto.setEmail(u.getEmail());
-        dto.setPassword(u.getPassword());
+        //dto.setPassword(u.getPassword());
         return dto;
     }
 }

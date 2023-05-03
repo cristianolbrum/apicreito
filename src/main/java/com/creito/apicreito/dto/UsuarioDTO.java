@@ -1,5 +1,6 @@
 package com.creito.apicreito.dto;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
@@ -8,6 +9,7 @@ import lombok.Setter;
 import org.hibernate.validator.constraints.Length;
 
 @Data
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class UsuarioDTO {
     private Long id;
     @Length(min=3,max=50,message = "O nome deve cnonter entre 3 e 50 caracteres")
