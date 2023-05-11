@@ -6,6 +6,8 @@ import com.creito.apicreito.service.CarteiraService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class CarteiraServiceImpl implements CarteiraService {
 
@@ -14,5 +16,10 @@ public class CarteiraServiceImpl implements CarteiraService {
     @Override
     public Carteira save(Carteira c) {
         return respository.save(c);
+    }
+
+    @Override
+    public Optional<Carteira> find(Long c) {
+        return respository.findById(c);
     }
 }
