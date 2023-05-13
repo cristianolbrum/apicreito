@@ -19,5 +19,5 @@ public class Carteira implements Serializable {
     @NotNull
     private String name;
     @NotNull
-    private BigDecimal value;
+    private BigDecimal amount;
 }
