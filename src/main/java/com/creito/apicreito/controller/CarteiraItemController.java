@@ -7,7 +7,6 @@ import com.creito.apicreito.repository.CarteiraItemRepository;
 import com.creito.apicreito.response.Response;
 import com.creito.apicreito.service.CarteiraItemService;
 import com.creito.apicreito.util.enums.TypeEnum;
-import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -17,6 +16,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
@@ -105,17 +105,18 @@ public class CarteiraItemController {
     }
 
     private CarteiraItem convertDtoToEntity(CarteiraItemDTO dto){
-        CarteiraItem ci = new CarteiraItem();
-        ci.setDate(dto.getDate());
-        ci.setDescription(dto.getDescription());
-        ci.setId(dto.getId());
-        ci.setType(TypeEnum.getEnum(dto.getType()));
-        ci.setValue(dto.getValue());
+       CarteiraItem ci = new CarteiraItem();
+       ci.setDate(dto.getDate());
+       ci.setDescription(dto.getDescription());
+       ci.setId(dto.getId());
+       ci.setType(TypeEnum.getEnum(dto.getType()));
+       ci.setValue(dto.getValue());
 
-        Carteira c = new Carteira();
-        c.setId(dto.getCarteira());
-        ci.setCarteira(c);
-        return ci;
+       Carteira c = new Carteira();
+       c.setId(dto.getCarteira());
+       ci.setCarteira(c);
+
+       return ci;
     }
 
     private CarteiraItemDTO convertEntityToDto(CarteiraItem ci){

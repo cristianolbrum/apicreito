@@ -6,7 +6,6 @@ import com.creito.apicreito.entity.Carteira;
 import com.creito.apicreito.entity.CarteiraItem;
 import com.creito.apicreito.response.Response;
 import com.creito.apicreito.service.CarteiraService;
-import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -14,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.Date;
 import java.util.Optional;
 
