@@ -48,7 +48,7 @@ public class CarteiraController {
         Carteira w = new Carteira();
         w.setId(dto.getId());
         w.setName(dto.getName());
-        w.setValue(dto.getValue());
+        w.setAmount(dto.getValue());
 
         return w;
     }
@@ -57,7 +57,7 @@ public class CarteiraController {
         CarteiraDTO dto = new CarteiraDTO();
         dto.setId(w.getId());
         dto.setName(w.getName());
-        dto.setValue(w.getValue());
+        dto.setValue(w.getAmount());
 
         return dto;
     }

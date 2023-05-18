@@ -14,10 +14,10 @@ import java.util.Date;
 import java.util.List;
 
 public interface CarteiraItemRepository extends JpaRepository<CarteiraItem, Long> {
-    Page<CarteiraItem> findAllByCarteiraIdAndDateGreaterThanEqualAndDateLessThanEqual(Long carteira, Date init, Date end, Pageable page);
+    Page<CarteiraItem> findAllByCarteiraIdAndCreatedAtGreaterThanEqualAndCreatedAtLessThanEqual(Long carteira, Date init, Date end, Pageable page);
     List<CarteiraItem> findByCarteiraIdAndType(Long carteira, TypeEnum type);
 
-    @Query(value = "select sum(value) from CarteiraItem wi where wi.carteira.id = :carteira")
+    @Query(value = "select sum(amount) from CarteiraItem wi where wi.carteira.id = :carteira")
     BigDecimal sumByCarteiraId(@Param("carteira") Long carteira);
 
 }

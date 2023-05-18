@@ -3,7 +3,6 @@ package com.creito.apicreito.controller;
 import com.creito.apicreito.dto.CarteiraItemDTO;
 import com.creito.apicreito.entity.Carteira;
 import com.creito.apicreito.entity.CarteiraItem;
-import com.creito.apicreito.repository.CarteiraItemRepository;
 import com.creito.apicreito.response.Response;
 import com.creito.apicreito.service.CarteiraItemService;
 import com.creito.apicreito.util.enums.TypeEnum;
@@ -105,12 +104,12 @@ public class CarteiraItemController {
     }
 
     private CarteiraItem convertDtoToEntity(CarteiraItemDTO dto){
-       CarteiraItem ci = new CarteiraItem();
-       ci.setDate(dto.getDate());
-       ci.setDescription(dto.getDescription());
-       ci.setId(dto.getId());
-       ci.setType(TypeEnum.getEnum(dto.getType()));
-       ci.setValue(dto.getValue());
+        CarteiraItem ci = new CarteiraItem();
+        ci.setCreatedAt(dto.getDate());
+        ci.setDescription(dto.getDescription());
+        ci.setId(dto.getId());
+        ci.setType(TypeEnum.getEnum(dto.getType()));
+        ci.setAmount(dto.getValue());
 
        Carteira c = new Carteira();
        c.setId(dto.getCarteira());
@@ -121,11 +120,11 @@ public class CarteiraItemController {
 
     private CarteiraItemDTO convertEntityToDto(CarteiraItem ci){
         CarteiraItemDTO dto = new CarteiraItemDTO();
-        dto.setDate(ci.getDate());
+        dto.setDate(ci.getCreatedAt());
         dto.setDescription(ci.getDescription());
         dto.setId(ci.getId());
         dto.setType(ci.getType().getValue());
-        dto.setValue(ci.getValue());
+        dto.setValue(ci.getAmount());
         dto.setCarteira(ci.getCarteira().getId());
         return dto;
     }

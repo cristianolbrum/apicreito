@@ -34,7 +34,7 @@ public class CarteiraItemServiceImpl implements CarteiraItemService {
     public Page<CarteiraItem> findBetweenDates(Long carteira, Date start, Date end, int page) {
         @SuppressWarnings("deprecation")
         PageRequest pg = PageRequest.of(page, itemsPerPage);
-        return repository.findAllByCarteiraIdAndDateGreaterThanEqualAndDateLessThanEqual(carteira,start,end,pg);
+        return repository.findAllByCarteiraIdAndCreatedAtGreaterThanEqualAndCreatedAtLessThanEqual(carteira,start,end,pg);
     }
 
     @Override

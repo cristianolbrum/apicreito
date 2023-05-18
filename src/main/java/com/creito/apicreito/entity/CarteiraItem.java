@@ -25,13 +25,13 @@ public class CarteiraItem implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY)
     private Carteira carteira;
     @NotNull
-    private Date date;
+    private Date createdAt;
     @NotNull
     @Enumerated(EnumType.STRING)
     private TypeEnum type;
     @NotNull
     private String description;
     @NotNull
-    private BigDecimal value;
+    private BigDecimal amount;
 
 }
