@@ -1,8 +1,8 @@
 package com.creito.apicreito.util.enums;
 
 public enum TypeEnum {
-    EN("entrada"),
-    SD("saida");
+    EN("ENTRADA"),
+    SD("SAIDA");
 
     private final String value;
     TypeEnum(String value){
